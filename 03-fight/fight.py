@@ -1,9 +1,22 @@
-from tkinter import *
+from  tkinter import *
+import time
  
-app = Tk()
-app.title = "Sea War"
+tk = Tk()
+tk.title = "Sea War"
 
-gFrame = Frame(master=  app,width=500, height=500, bg="white")
+
+canvas = Canvas(tk, width=500, height=500)
+canvas.pack()
+
+ship_image = PhotoImage(file = "ship.gif")
+s = canvas.create_image(500, 0, anchor =NW, image = ship_image)
+
+for y in range(200):
+  canvas.move(s, -3, 0)
+  tk.update()
+  time.sleep(0.02)
+
+# gFrame = Frame(master=  tk,width=500, height=500, bg="white")
  
 # e = Entry(width=20)
 # b = Button(text="Преобразовать")
@@ -21,4 +34,4 @@ gFrame = Frame(master=  app,width=500, height=500, bg="white")
 # b.pack()
 # l.pack()
 
-app.mainloop()
+tk.mainloop()
