@@ -12,7 +12,7 @@ def draw_gun(c_x):
   canvas.create_rectangle(c_x-10, 460, c_x+10, 480, fill="black")
 
 def ball(event):
-  global b
+  global b, shots
   canvas.delete(b)
   b=canvas.create_oval(240, 460,260,480, fill="gray")
 canvas.bind_all("<space>", ball)
@@ -20,6 +20,8 @@ canvas.bind_all("<space>", ball)
 ship_image = PhotoImage(file = "ship.gif")
 s = canvas.create_image(500, 0, anchor =NW, image = ship_image)
 b = 0
+
+shots = 0
 
 draw_gun(250)
 
