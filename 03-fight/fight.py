@@ -28,16 +28,17 @@ def ball(event):
 canvas.bind_all("<space>", ball)
 
 ship_image = PhotoImage(file = "ship.gif")
-s = canvas.create_image(500, 0, anchor =NW, image = ship_image)
 
 draw_gun(250)
 
 # Основний процес гри
-for y in range(200):
-    canvas.move(s, -3, 0)
-    canvas.move(b, 0, -5)
-    tk.update()
-    time.sleep(0.02)
+for z in range(10):
+    s = canvas.create_image(500, 0, anchor =NW, image = ship_image)
+    for y in range(200):
+        canvas.move(s, -3, 0)
+        canvas.move(b, 0, -5)
+        tk.update()
+        time.sleep(0.02)
 
 
 # gFrame = Frame(master=  tk,width=500, height=500, bg="white")
