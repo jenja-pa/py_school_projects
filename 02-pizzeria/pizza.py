@@ -9,21 +9,25 @@ def rez (val):
     return int(val)
 # =====
 
-lbl = Label(text="Найменування", font="10", justify="left")
+lbl = Label(text="Найменування", font="10", anchor=W)
 lbl.place(x=20, y=20, width=130, height=40)
 
-lbl = Label(text="Ціна, грн.", font="10", justify="left")
+lbl = Label(text="Ціна, грн.", font="10", anchor=W)
 lbl.place(x=150, y=20, width=80, height=40)
 
-lbl = Label(text="Кількість", font="10", justify="left")
+lbl = Label(text="Кількість", font="10", anchor=W)
 lbl.place(x=230, y=20, width=80, height=40)
 
-lbl = Label(text="Вартість, грн.", font="10", justify="left")
+lbl = Label(text="Вартість, грн.", font="10", anchor=W)
 lbl.place(x=310, y=20, width=130, height=40)
+
+lbl = Label(text="Добавки до піци, 3 грн.", font="10", anchor=W)
+lbl.place(x=440, y=20, width=210, height=40)
+
 
 # ----
 y1=0
-lbl = Label(text="Піца", font="10", justify="left")
+lbl = Label(text="Піца", font="10", anchor=W)
 lbl.place(x=20, y=60, width=130, height=30)
 
 P1 = Entry(font="Arial 12", bg="sky blue", justify="center")
@@ -33,6 +37,10 @@ P1.place(x=150, y=60, width=50, height=30)
 def s1_click(val):
     global y1
     k1 = int(val) 
+    if(k1>0):
+        tk.geometry("650x300")
+    else:
+        tk.geometry("440x300")
     x1 = float(P1.get())
     y1 = rez(x1)*k1
     var1.set(y1)
@@ -43,10 +51,12 @@ var1 = StringVar()
 C1 = Label(text=0, font="Arial 12", bg="deep sky blue", textvariable=var1)
 C1.place(x=310, y=60, width=60, height=30)
 
+ch1 = Checkbutton(text="Майонез", anchor=W)
+ch1.place(x=440, y=60, width=190, height=30)
 
 # ----
 y2=0
-lbl = Label(text="Морозиво", font="10", justify="left")
+lbl = Label(text="Морозиво", font="10", anchor=W)
 lbl.place(x=20, y=100, width=130, height=30)
 
 P2 = Entry(font="Arial 12", bg="sky blue", justify="center")
@@ -66,9 +76,12 @@ var2 = StringVar()
 C2 = Label(text=0, font="Arial 12", bg="deep sky blue", textvariable=var2)
 C2.place(x=310, y=100, width=60, height=30)
 
+ch2 = Checkbutton(text="Кетчуп", anchor=W)
+ch2.place(x=440, y=100, width=190, height=30)
+
 # ----
 y3=0
-lbl = Label(text="Тістечко", font="10", justify="left")
+lbl = Label(text="Тістечко", font="10", anchor=W)
 lbl.place(x=20, y=140, width=130, height=30)
 
 P3 = Entry(font="Arial 12", bg="sky blue", justify="center")
@@ -88,9 +101,12 @@ var3 = StringVar()
 C3 = Label(text=0, font="Arial 12", bg="deep sky blue", textvariable=var3)
 C3.place(x=310, y=140, width=60, height=30)
 
+ch3 = Checkbutton(text="Соус", anchor=W)
+ch3.place(x=440, y=140, width=190, height=30)
+
 # ----
 y4=0
-lbl = Label(text="Сік", font="10", justify="left")
+lbl = Label(text="Сік", font="10", anchor=W)
 lbl.place(x=20, y=180, width=130, height=40)
 
 P4 = Entry(font="Arial 12", bg="sky blue", justify="center")
@@ -110,9 +126,12 @@ var4 = StringVar()
 C4 = Label(text=0, font="Arial 12", bg="deep sky blue", textvariable=var4)
 C4.place(x=310, y=180, width=60, height=30)
 
+ch4 = Checkbutton(text="Ананаси", anchor=W)
+ch4.place(x=440, y=180, width=190, height=30)
+
 # -------
 
-lbl = Label(text="Вартість замовлення", justify="left", font="10")
+lbl = Label(text="Вартість замовлення", anchor=W, font="10")
 lbl.place(x=20, y=230, width=170, height=40)
 
 var5 = StringVar()
