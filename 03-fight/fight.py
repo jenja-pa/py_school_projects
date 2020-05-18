@@ -1,5 +1,6 @@
 import time
 from tkinter import *
+import random
 
 tk = Tk()
 tk.title = "Sea War"
@@ -34,8 +35,9 @@ draw_gun(250)
 # Основний процес гри
 for z in range(10):
     s = canvas.create_image(500, 0, anchor =NW, image = ship_image)
-    for y in range(200):
-        canvas.move(s, -3, 0)
+    v = random.randint(2, 5)
+    for y in range(300):
+        canvas.move(s, -v, 0)
         canvas.move(b, 0, -5)
         tk.update()
         time.sleep(0.02)
