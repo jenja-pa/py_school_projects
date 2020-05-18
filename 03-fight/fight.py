@@ -42,23 +42,4 @@ for z in range(10):
         tk.update()
         time.sleep(0.02)
 
-
-# gFrame = Frame(master=  tk,width=500, height=500, bg="white")
- 
-# e = Entry(width=20)
-# b = Button(text="Преобразовать")
-# l = Label(bg='black', fg='white', width=20)
- 
-# def strToSortlist(event):
-#     s = e.get()
-#     s = s.split()
-#     s.sort()
-#     l['text'] = ' '.join(s)
- 
-# b.bind('<Button-1>', strToSortlist)
- 
-# e.pack()
-# b.pack()
-# l.pack()
-
 tk.mainloop()
