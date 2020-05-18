@@ -27,6 +27,7 @@ lbl.place(x=440, y=20, width=210, height=40)
 
 # ----
 y1=0
+k1=0
 lbl = Label(text="Піца", font="10", anchor=W)
 lbl.place(x=20, y=60, width=130, height=30)
 
@@ -35,7 +36,7 @@ P1.insert(END, "75")
 P1.place(x=150, y=60, width=50, height=30)
 
 def s1_click(val):
-    global y1
+    global y1, k1
     k1 = int(val) 
     if(k1>0):
         tk.geometry("650x300")
@@ -51,7 +52,8 @@ var1 = StringVar()
 C1 = Label(text=0, font="Arial 12", bg="deep sky blue", textvariable=var1)
 C1.place(x=310, y=60, width=60, height=30)
 
-ch1 = Checkbutton(text="Майонез", anchor=W)
+var_ch1 = IntVar()
+ch1 = Checkbutton(text="Майонез", anchor=W, font="Arial 12", variable=var_ch1)
 ch1.place(x=440, y=60, width=190, height=30)
 
 # ----
@@ -76,7 +78,8 @@ var2 = StringVar()
 C2 = Label(text=0, font="Arial 12", bg="deep sky blue", textvariable=var2)
 C2.place(x=310, y=100, width=60, height=30)
 
-ch2 = Checkbutton(text="Кетчуп", anchor=W)
+var_ch2 = IntVar()
+ch2 = Checkbutton(text="Кетчуп", anchor=W, font="Arial 12", variable=var_ch2)
 ch2.place(x=440, y=100, width=190, height=30)
 
 # ----
@@ -101,7 +104,8 @@ var3 = StringVar()
 C3 = Label(text=0, font="Arial 12", bg="deep sky blue", textvariable=var3)
 C3.place(x=310, y=140, width=60, height=30)
 
-ch3 = Checkbutton(text="Соус", anchor=W)
+var_ch3 = IntVar()
+ch3 = Checkbutton(text="Соус", anchor=W, font="Arial 12", variable=var_ch3)
 ch3.place(x=440, y=140, width=190, height=30)
 
 # ----
@@ -126,11 +130,11 @@ var4 = StringVar()
 C4 = Label(text=0, font="Arial 12", bg="deep sky blue", textvariable=var4)
 C4.place(x=310, y=180, width=60, height=30)
 
-ch4 = Checkbutton(text="Ананаси", anchor=W)
+var_ch4 = IntVar()
+ch4 = Checkbutton(text="Ананаси", anchor=W, font="Arial 12", variable=var_ch4)
 ch4.place(x=440, y=180, width=190, height=30)
 
 # -------
-
 lbl = Label(text="Вартість замовлення", anchor=W, font="10")
 lbl.place(x=20, y=230, width=170, height=40)
 
@@ -142,12 +146,24 @@ lbl = Label(text="грн.", justify="cente", font="10")
 lbl.place(x=250, y=230, width=60, height=40)
 
 def btn_click():
-    global y1,y2,y3,y4
+    global y1,y2,y3,y4, k1
+    ly4 = y4
+    ly1 = y1
     if y1>0 and y2>0:
-        y4 = rez(y4 * 0.5)
+        ly4 = rez(y4 * 0.5)
     if y2>0 or y3>0:
-        y1 = y1 - y1*0.1
-    var5.set(y1+y2+y3+y4)
+        ly1 = rez(y1 - y1*0.1)
+    k=0
+    if var_ch1.get() == 1:
+        k=k+1
+    if var_ch2.get() == 1:
+        k=k+1
+    if var_ch3.get() == 1:
+        k=k+1
+    if var_ch4.get() == 1:
+        k=k+1
+
+    var5.set(rez(ly1+(k*k1*3)+y2+y3+ly4))
 
 btn = Button(text="Розрахувати", justify="center", font=10, command=btn_click)
 btn.place(x=310, y=230, width=120, height=40)
