@@ -124,6 +124,10 @@ lbl.place(x=250, y=230, width=60, height=40)
 
 def btn_click():
     global y1,y2,y3,y4
+    if y1>0 and y2>0:
+        y4 = rez(y4 * 0.5)
+    if y2>0 or y3>0:
+        y1 = y1 - y1*0.1
     var5.set(y1+y2+y3+y4)
 
 btn = Button(text="Розрахувати", justify="center", font=10, command=btn_click)
